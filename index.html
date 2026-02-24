@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teendőlista + Stopper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teendőlista</h1>
+
+        <div class="input-row">
+            <input id="taskInput" type="text" placeholder="Írd be a feladatot...">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <h2>Stopper</h2>
+        <div class="timer">
+            <span id="time">00:00:00</span>
+        </div>
+        <div class="timer-buttons">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn">Stop</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <script src="indey.js"></script>
+</body>
+</html>

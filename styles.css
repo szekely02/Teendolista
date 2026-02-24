@@ -1,0 +1,197 @@
+body {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(34, 40, 49, 0.98);
+    border-radius: 24px;
+    box-shadow: 0 8px 40px #00d2ff33, 0 1.5px 0 #fff2 inset;
+    padding: 44px 38px 36px 38px;
+    min-width: 340px;
+    max-width: 96vw;
+    color: #eaf6fb;
+    border: 2px solid #00d2ff;
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    color: #00d2ff;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px #00d2ff44;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+#taskInput {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 2px solid #00d2ff;
+    background: #232526;
+    color: #eaf6fb;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #00d2ff22;
+}
+#taskInput:focus {
+    border: 2px solid #00fff6;
+    box-shadow: 0 4px 16px #00fff644;
+}
+#addBtn {
+    background: linear-gradient(90deg, #00d2ff 60%, #3a7bd5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #00d2ff44;
+    transition: background 0.2s, transform 0.2s;
+}
+#addBtn:hover {
+    background: linear-gradient(90deg, #3a7bd5 60%, #00d2ff 100%);
+    transform: scale(1.06);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+}
+#taskList li {
+    background: linear-gradient(90deg, #232526 60%, #3a7bd5 100%);
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px #00d2ff22;
+    border-left: 4px solid #00d2ff;
+    transition: background 0.2s, border 0.2s;
+}
+#taskList li.done {
+    opacity: 0.6;
+    text-decoration: line-through;
+    border-left: 4px solid #00fff6;
+}
+
+.timer {
+    font-size: 2.2rem;
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    color: #00fff6;
+    background: #232526;
+    border-radius: 10px;
+    padding: 16px 32px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px #00fff644;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.timer-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+.timer-buttons button {
+    background: linear-gradient(90deg, #00fff6 60%, #3a7bd5 100%);
+    color: #232526;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #00fff644;
+    transition: background 0.2s, transform 0.2s;
+}
+.timer-buttons button:hover {
+    background: linear-gradient(90deg, #3a7bd5 60%, #00fff6 100%);
+    color: #fff;
+    transform: scale(1.06);
+}
+
+/* Animációk a feladatokhoz */
+.task-in {
+    animation: taskInAnim 0.6s cubic-bezier(.42,0,.58,1);
+}
+@keyframes taskInAnim {
+    0% { opacity: 0; transform: translateY(-30px) scale(0.8); }
+    80% { opacity: 1; transform: translateY(8px) scale(1.08); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.task-out {
+    animation: taskOutAnim 0.5s cubic-bezier(.42,0,.58,1) forwards;
+}
+@keyframes taskOutAnim {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.7) translateX(60px); }
+}
+
+/* Világos mód stílusok */
+body.light-mode {
+    background: linear-gradient(135deg, #eaf6fb 0%, #fffbe7 100%);
+}
+body.light-mode .container {
+    background: #fffbe7;
+    color: #232526;
+    border-color: #3a7bd5;
+}
+body.light-mode h1, body.light-mode h2 {
+    color: #3a7bd5;
+    text-shadow: 0 2px 8px #3a7bd544;
+}
+body.light-mode #taskInput {
+    background: #fff;
+    color: #232526;
+    border-color: #3a7bd5;
+}
+body.light-mode #addBtn {
+    background: linear-gradient(90deg, #3a7bd5 60%, #00d2ff 100%);
+    color: #fff;
+}
+body.light-mode #addBtn:hover {
+    background: linear-gradient(90deg, #00d2ff 60%, #3a7bd5 100%);
+}
+body.light-mode #taskList li {
+    background: linear-gradient(90deg, #fffbe7 60%, #eaf6fb 100%);
+    color: #232526;
+    border-left: 4px solid #3a7bd5;
+}
+body.light-mode #taskList li.done {
+    border-left: 4px solid #00d2ff;
+}
+body.light-mode .timer {
+    background: #fff;
+    color: #3a7bd5;
+}
+body.light-mode .timer-buttons button {
+    background: linear-gradient(90deg, #3a7bd5 60%, #00d2ff 100%);
+    color: #fff;
+}
+body.light-mode .timer-buttons button:hover {
+    background: linear-gradient(90deg, #00d2ff 60%, #3a7bd5 100%);
+    color: #232526;
+}
+body.light-mode .container::before {
+    background: radial-gradient(circle at 30% 30%, #3a7bd5 0 40px, #00d2ff00 100%);
+}
+body.light-mode .container::after {
+    background: radial-gradient(circle at 70% 70%, #00d2ff 0 40px, #00d2ff00 100%);
+}
