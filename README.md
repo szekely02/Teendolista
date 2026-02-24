@@ -1,2 +1,5 @@
 # Teendolista
-Teendőlista
+
+Azért olvasod mert kíváncsi vagy?
+
+Insta: 
